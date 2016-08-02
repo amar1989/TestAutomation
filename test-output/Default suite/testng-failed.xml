@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]">
+  <test name="Command line test cbdb3630-94a4-4a0d-8563-6c5479d9c135">
+    <classes>
+      <class name="com.upgrad.testcases.MovieListTest">
+        <methods>
+          <include name="testMovieList"/>
+          <exclude name="loginTOImdb"/>
+        </methods>
+      </class> <!-- com.upgrad.testcases.MovieListTest -->
+      <class name="com.upgrad.testcases.LoginTest">
+        <methods>
+          <include name="testMovieList"/>
+          <exclude name="loginTOImdb"/>
+        </methods>
+      </class> <!-- com.upgrad.testcases.LoginTest -->
+    </classes>
+  </test> <!-- Command line test cbdb3630-94a4-4a0d-8563-6c5479d9c135 -->
+</suite> <!-- Failed suite [Default Suite] -->
