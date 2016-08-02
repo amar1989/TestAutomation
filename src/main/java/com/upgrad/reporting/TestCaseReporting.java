@@ -34,7 +34,7 @@ public class TestCaseReporting {
 	public static void writeTestCase(String testCaseName,String status,String reportFile23) throws IOException
 	{
 		
-	    String script="<tr><td>"+testCaseName+"</td><td>"+status+"</td><td><a href="+reportFile23+">Response</a></td></tr>";
+	    String script="<tr><td>"+testCaseName+"</td><td>"+status+"</td><td><a href=../"+reportFile23+">ClickHere</a></td></tr>";
 		htmlWriter.append(script);
 		
 	}

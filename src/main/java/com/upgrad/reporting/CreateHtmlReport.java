@@ -16,7 +16,7 @@ public class CreateHtmlReport {
 	
 private static StringBuilder htmlWriter1;
 	
-	private static String fileName="/Movies.html";
+	private static String fileName="Report/ReportFiles/Movies.html";
 	public  static int counter=0;
 	
 	static
