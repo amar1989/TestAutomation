@@ -34,7 +34,7 @@ public class ActionBot {
 		}
 		else
 		{
-			System.out.println("Element is not displayed so data can not be sent");
+			System.out.println("Element is not displayed so data can not be entered");
 		}
 	
 	}

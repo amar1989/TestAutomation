@@ -1,6 +1,6 @@
 package com.upgrad.services.movielist;
 
-public class MovieListBO {
+public class MovieBO {
 	
 	private String movieName=null;
 	private String releaseYear=null;

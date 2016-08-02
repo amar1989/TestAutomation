@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default Suite" duration-ms="95257" started-at="2016-08-02T10:49:01Z" finished-at="2016-08-02T10:50:36Z">
+  <suite name="Default Suite" duration-ms="77644" started-at="2016-08-02T15:05:43Z" finished-at="2016-08-02T15:07:01Z">
     <groups>
     </groups>
-    <test name="Command line test d322e0c1-bcec-4447-a122-64225c1aeaea" duration-ms="95257" started-at="2016-08-02T10:49:01Z" finished-at="2016-08-02T10:50:36Z">
+    <test name="Command line test 1be98566-7f5c-44ef-bed6-59506ce02360" duration-ms="77644" started-at="2016-08-02T15:05:43Z" finished-at="2016-08-02T15:07:01Z">
       <class name="com.upgrad.testcases.MovieListTest">
-        <test-method status="PASS" signature="TestMovieList(java.lang.reflect.Method)[pri:0, instance:com.upgrad.testcases.MovieListTest@2c34f934]" name="TestMovieList" duration-ms="95233" started-at="2016-08-02T16:19:01Z" finished-at="2016-08-02T16:20:36Z">
+        <test-method status="PASS" signature="TestMovieList(java.lang.reflect.Method)[pri:0, instance:com.upgrad.testcases.MovieListTest@525f1e4e]" name="TestMovieList" duration-ms="77631" started-at="2016-08-02T20:35:43Z" finished-at="2016-08-02T20:37:01Z">
           <params>
             <param index="0">
               <value>
@@ -19,6 +19,6 @@
           </reporter-output>
         </test-method> <!-- TestMovieList -->
       </class> <!-- com.upgrad.testcases.MovieListTest -->
-    </test> <!-- Command line test d322e0c1-bcec-4447-a122-64225c1aeaea -->
+    </test> <!-- Command line test 1be98566-7f5c-44ef-bed6-59506ce02360 -->
   </suite> <!-- Default Suite -->
 </testng-results>

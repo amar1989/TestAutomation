@@ -9,7 +9,7 @@ import java.io.Writer;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.upgrad.services.movielist.MovieListBO;
+import com.upgrad.services.movielist.MovieBO;
 import com.upgrad.utilities.DBOperations;
 
 public class CreateHtmlReport {
@@ -43,9 +43,9 @@ private static StringBuilder htmlWriter1;
 	
 	public static String getHtmlReportFile() throws SQLException, IOException
 	{
-	   List<MovieListBO> movieList=DBOperations.getMovieList();
+	   List<MovieBO> movieList=DBOperations.getMovieList();
 	   
-	   for(MovieListBO movie:movieList)
+	   for(MovieBO movie:movieList)
 	   {
 		   String movieName=movie.getMovieName();
 		   String releaseYear=movie.getReleaseYear();

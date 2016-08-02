@@ -1,5 +1,6 @@
 package com.upgrad.utilities;
 
+import java.io.IOException;
 import java.sql.Connection;
 
 import java.sql.DriverManager;
@@ -9,7 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.upgrad.services.movielist.MovieListBO; 
+import com.upgrad.framework.testdata.TestDataImpl;
+import com.upgrad.services.movielist.MovieBO; 
 
 public class DBOperations
 {
@@ -19,6 +21,7 @@ public class DBOperations
     	Connection conn=null;
         try
         {
+        	
             Class.forName("org.sqlite.JDBC");
             String dbURL = "jdbc:sqlite:product.db";
             conn = DriverManager.getConnection(dbURL);
@@ -36,12 +39,12 @@ public class DBOperations
         return conn;
     }
     
-    public static void createTable() throws SQLException
+    public static void createTable(String tableName) throws SQLException
     {
     	Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 
-		String createTableSQL = "CREATE TABLE IF NOT EXISTS MOVIELIST1(MOVIENAME VARCHAR(20) NOT NULL, RELEASE_YEAR VARCHAR(4) NOT NULL, RATING VARCHAR(4) NOT NULL)";
+		String createTableSQL = "CREATE TABLE IF NOT EXISTS "+tableName+"(MOVIENAME VARCHAR(20) NOT NULL, RELEASE_YEAR VARCHAR(4) NOT NULL, RATING VARCHAR(4) NOT NULL)";
 		
 		
 		try 
@@ -76,16 +79,16 @@ public class DBOperations
 
 	}
 
-public static void insertRecord(List<MovieListBO> movieList) throws SQLException
+public static void insertRecord(List<MovieBO> movieList,String testCaseName) throws SQLException, IOException
 {
 	
 	System.out.println("Inserting records in DB...");
 	
-	boolean flag=true;
 	Connection dbConnection = null;
 	PreparedStatement preparedStatement = null;
+	String tableName=TestDataImpl.getValue("TableName", testCaseName);
 
-	String insertTableSQL = "INSERT INTO MOVIELIST1"
+	String insertTableSQL = "INSERT INTO "+tableName+""
 			+ "(MOVIENAME, RELEASE_YEAR, RATING) VALUES"
 			+ "(?,?,?)";
 
@@ -94,10 +97,10 @@ public static void insertRecord(List<MovieListBO> movieList) throws SQLException
 		dbConnection = getConnection();
 		if(dbConnection!=null)
 		{
-		    createTable();
+		    createTable(tableName);
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 	        
-			for(MovieListBO movieBO:movieList)
+			for(MovieBO movieBO:movieList)
 			{
 			
 				preparedStatement.setString(1, movieBO.getMovieName());
@@ -112,12 +115,12 @@ public static void insertRecord(List<MovieListBO> movieList) throws SQLException
 		else
 		{
 			System.out.println("Connection has not been created.");
-			flag=false;
+			
 		}
 	}
 	catch (SQLException e) 
 	{
-        flag=false;
+       
 		e.printStackTrace();
 
 	} 
@@ -137,13 +140,17 @@ public static void insertRecord(List<MovieListBO> movieList) throws SQLException
 	}
 
 }
-	 
+	/*public static void main(String str[])
+	{
+		Connection con=getConnection();
+		System.out.println("connection :::"+con);
+	}*/
 
-	public static List<MovieListBO> getMovieList() throws SQLException
+	public static List<MovieBO> getMovieList() throws SQLException
 	{
 		System.out.println("Fetching records from DB....");
 		
-		List<MovieListBO> moviesBOList=new ArrayList<MovieListBO>();
+		List<MovieBO> moviesBOList=new ArrayList<MovieBO>();
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -159,7 +166,7 @@ public static void insertRecord(List<MovieListBO> movieList) throws SQLException
 
 			while (rs.next())
 			{
-                MovieListBO movie=new MovieListBO();
+                MovieBO movie=new MovieBO();
                 
 				String movieName = rs.getString("MOVIENAME");
 				movie.setMovieName(movieName);

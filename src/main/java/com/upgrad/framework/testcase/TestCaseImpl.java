@@ -24,7 +24,7 @@ public class TestCaseImpl
 	
 	private static String testCaseName="";
 	private static String status="";
-	
+	private static String testDataFile="";
 	private static FileInputStream file=null;
   
 	private static TestCase testCase;
@@ -57,14 +57,17 @@ public class TestCaseImpl
 				Row row = rowIterator.next();
 
 				Cell testCaseNameCell = row.getCell(0);
-				Cell statusCell = row.getCell(1);
+				Cell testDataCell = row.getCell(1);
+				Cell statusCell=row.getCell(2);
 				
 			    testCaseName = testCaseNameCell.getStringCellValue();
 				status = statusCell.getStringCellValue();
+				testDataFile=testDataCell.getStringCellValue();
 				
 			    testCase.setTestCaseName(testCaseName);
 				testCase.setStatus(status);
-              
+                testCase.setTestDataFile(testDataFile);
+                
 				testCaseList.add(testCase);
                 
 

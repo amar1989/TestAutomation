@@ -1,5 +1,6 @@
 package com.upgrad.services.movielist;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +11,14 @@ import com.upgrad.utilities.DBOperations;
 
 public class MovieListServices 
 {
-	private static List<MovieListBO> movieList=new ArrayList<MovieListBO>();
+	private static List<MovieBO> movieList=new ArrayList<MovieBO>();
 	
-	public static List<MovieListBO> getMovieList(List<WebElement> movieNames,List<WebElement> releaseyears,List<WebElement> ratings) throws SQLException
+	public static List<MovieBO> getMovieList(List<WebElement> movieNames,List<WebElement> releaseyears,List<WebElement> ratings,String testCaseName) throws SQLException, IOException
 	{
 		
 		for(int i=0;i<movieNames.size();i++)
 		{
-			MovieListBO movieListBO=new MovieListBO();
+			MovieBO movieListBO=new MovieBO();
 			
 			String movieName=movieNames.get(i).getText();
 			movieListBO.setMovieName(movieName);
@@ -28,7 +29,7 @@ public class MovieListServices
 			
 			movieList.add(movieListBO);
 		}
-		DBOperations.insertRecord(movieList);
+		DBOperations.insertRecord(movieList, testCaseName);
 		return movieList;
 	}
 }

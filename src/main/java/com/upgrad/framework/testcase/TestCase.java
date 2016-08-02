@@ -4,7 +4,16 @@ public class TestCase {
 	
 	private  String testCaseName="";
 	private  String status="";
+	private String testDataFile="";
 	
+	public String getTestDataFile() 
+	{
+		return testDataFile;
+	}
+	public void setTestDataFile(String testDataFile)
+	{
+		this.testDataFile = testDataFile;
+	}
 	public String getTestCaseName() 
 	{
 		return testCaseName;

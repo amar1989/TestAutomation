@@ -15,8 +15,8 @@ public class UIElements {
 	private static Map<String, By> elementMap = new HashMap<String, By>();
 
 	public static By getUIElement(String webElement) {
-		By by = null;
-		by = elementMap.get(webElement);
+		
+		By by = elementMap.get(webElement);
 		return by;
 	}
 

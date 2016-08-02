@@ -18,7 +18,7 @@ public class MovieListTest
 		String status=null;
 		WebDriver driver=DriverManager.getDriver();
 		Thread.sleep(5000);
-		boolean flag=MovieListFlow.getMovieListFlow(driver);
+		boolean flag=MovieListFlow.getMovieListFlow(driver,method.getName());
 		if(flag==true)
 		{
 			status="PASS";
@@ -28,7 +28,7 @@ public class MovieListTest
 			status="FAIL";
 		}
 		TestResultImpl.createTestResultList(method.getName(), status);
-		
+		DriverManager.closeDriver(driver);
 	}
 
 }

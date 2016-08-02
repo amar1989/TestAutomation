@@ -48,7 +48,7 @@ public class DriverManager
 		}
 		catch(Exception e)
 		{
-			
+			e.printStackTrace();
 		}
 		
 		  return driver;
