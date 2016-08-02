@@ -1,6 +1,7 @@
 package com.upgrad.reporting;
 
-public class TestResult {
+public class TestResult 
+{
 	private String status="";
 	private String testCasename="";
 	

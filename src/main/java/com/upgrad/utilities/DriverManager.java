@@ -26,8 +26,7 @@ public class DriverManager
 	}
 	private static WebDriver getFirefoxDriver()
 	{
-		System.out.println("hello------123");
-		
+	
 		WebDriver driver=new FirefoxDriver();
 		driver.manage().window().maximize();
 		System.out.println(ConfigPropertiesBO.getUrl());
@@ -35,12 +34,36 @@ public class DriverManager
 		return driver;
 	}
 	
-	private static WebDriver getChromeDriver()
+	
+	public static WebDriver getChromeDriver()
 	{
-		WebDriver driver=new ChromeDriver();
-		return driver;
+		WebDriver driver=null;
+		
+		System.setProperty("webdriver.chrome.driver", "Executable/chromedriver.exe");
+		driver = new ChromeDriver();
+		try
+		{
+		    driver.manage().window().maximize();
+			driver.get(ConfigPropertiesBO.getUrl());
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		  return driver;
+		
 	}
 	
+	public static void closeDriver(WebDriver driver)
+	{
+		if(driver!=null)
+		{
+			driver.close();
+			driver=null;
+		}
+	
+	}
 	
 
 }

@@ -31,14 +31,4 @@ public class MovieListServices
 		DBOperations.insertRecord(movieList);
 		return movieList;
 	}
-	
-	public static void showMovieListValue(List<MovieListBO> movieListBo)
-	{
-		for(MovieListBO bo:movieListBo)
-		{
-			System.out.println(bo.getMovieName()+"\t"+bo.getRating()+"\t"+bo.getReleaseYear());
-		}
-	}
-	
-
 }

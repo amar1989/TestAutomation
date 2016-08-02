@@ -29,10 +29,8 @@ public class WebElementImpl
 	
 	public static Map<String,By> createWebElementList(String fileName) throws IOException
 	{
-		elementMap=new HashMap<String,By>();
-		
-		
-			elementStream = new FileInputStream(new File(fileName));
+		    elementMap=new HashMap<String,By>();
+		    elementStream = new FileInputStream(new File(fileName));
 			workbook=new HSSFWorkbook(elementStream);
 			sheet=workbook.getSheetAt(0);
 			

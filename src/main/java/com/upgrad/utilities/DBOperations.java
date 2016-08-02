@@ -22,17 +22,7 @@ public class DBOperations
             Class.forName("org.sqlite.JDBC");
             String dbURL = "jdbc:sqlite:product.db";
             conn = DriverManager.getConnection(dbURL);
-  
-            /*if (conn != null) 
-            {
-                System.out.println("Connected to the database");
-                DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
-                System.out.println("Driver name: " + dm.getDriverName());
-                System.out.println("Driver version: " + dm.getDriverVersion());
-                System.out.println("Product name: " + dm.getDatabaseProductName());
-                System.out.println("Product version: " + dm.getDatabaseProductVersion());
-                //conn.close();
-            }*/
+   
         } 
         catch (ClassNotFoundException ex) 
         {
@@ -88,6 +78,9 @@ public class DBOperations
 
 public static void insertRecord(List<MovieListBO> movieList) throws SQLException
 {
+	
+	System.out.println("Inserting records in DB...");
+	
 	boolean flag=true;
 	Connection dbConnection = null;
 	PreparedStatement preparedStatement = null;
@@ -145,18 +138,10 @@ public static void insertRecord(List<MovieListBO> movieList) throws SQLException
 
 }
 	 
-	    
-	/*public static void main(String str[]) throws SQLException
-	{
-		List<MovieListBO> movieList=getMovieList();
-		for(MovieListBO movie:movieList)
-		{
-			System.out.println(movie.getMovieName()+"\t"+movie.getReleaseYear()+"\t"+movie.getRating());
-		}
-	}*/
-	
+
 	public static List<MovieListBO> getMovieList() throws SQLException
 	{
+		System.out.println("Fetching records from DB....");
 		
 		List<MovieListBO> moviesBOList=new ArrayList<MovieListBO>();
 		Connection dbConnection = null;
@@ -168,7 +153,6 @@ public static void insertRecord(List<MovieListBO> movieList) throws SQLException
 		{
 			dbConnection = getConnection();
 			preparedStatement = dbConnection.prepareStatement(selectSQL);
-			//preparedStatement.setInt(1, 11);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			

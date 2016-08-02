@@ -27,7 +27,8 @@ public class MovieListFlow {
 			List<WebElement> moviesRatingList=ImdbMoviesListOps.getRatingsList(driver,ImdbMoviesList.mviesRating );
 			
 			List<MovieListBO> movieList=MovieListServices.getMovieList(moviesList, releaseYearList, moviesRatingList);
-		    if(movieList==null)
+		   
+			if(movieList==null)
 		    {
 		    	flag=false;
 		    }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default Suite]">
-  <test name="Command line test cbdb3630-94a4-4a0d-8563-6c5479d9c135">
+  <test name="Command line test d322e0c1-bcec-4447-a122-64225c1aeaea">
     <classes>
       <class name="com.upgrad.testcases.MovieListTest">
         <methods>
@@ -16,5 +16,5 @@
         </methods>
       </class> <!-- com.upgrad.testcases.LoginTest -->
     </classes>
-  </test> <!-- Command line test cbdb3630-94a4-4a0d-8563-6c5479d9c135 -->
+  </test> <!-- Command line test d322e0c1-bcec-4447-a122-64225c1aeaea -->
 </suite> <!-- Failed suite [Default Suite] -->

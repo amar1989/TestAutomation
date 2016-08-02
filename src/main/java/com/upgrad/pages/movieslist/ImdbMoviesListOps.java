@@ -34,40 +34,4 @@ public class ImdbMoviesListOps extends ImdbMoviesList
 		return releaseYears;
 	}
 	
-	/*private  static List<String> getMovieList(WebDriver driver,By by)
-	{
-		List<WebElement> moviesName=driver.findElements(by);
-		List<String> movieNameList=new ArrayList<String>();
-		for(WebElement movie:moviesName)
-		{
-			String movieName=movie.getText();
-			movieNameList.add(movieName);
-		}
-		return movieNameList;
-	}
-	public static List<String> getMoviesRating(WebDriver driver,By by)
-	{
-		List<WebElement> releaseYears=driver.findElements(by);
-		List<String> releaseYearList=new ArrayList<String>();
-		for(WebElement releaseYear:releaseYears)
-		{
-			String year=releaseYear.getText();
-			releaseYearList.add(year);
-		}
-		return releaseYearList;
-	}
-
-	
-	public static List<String> getReleaseYear(WebDriver driver,By by)
-	{
-		List<WebElement> releaseYears=driver.findElements(by);
-		List<String> releaseYearList=new ArrayList<String>();
-		for(WebElement releaseYear:releaseYears)
-		{
-			String year=releaseYear.getText();
-			releaseYearList.add(year);
-		}
-		return releaseYearList;
-	}
-*/
 }

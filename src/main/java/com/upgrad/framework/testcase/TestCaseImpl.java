@@ -59,19 +59,13 @@ public class TestCaseImpl
 				Cell testCaseNameCell = row.getCell(0);
 				Cell statusCell = row.getCell(1);
 				
-				
-
-				testCaseName = testCaseNameCell.getStringCellValue();
+			    testCaseName = testCaseNameCell.getStringCellValue();
 				status = statusCell.getStringCellValue();
 				
-				
-                
-                	
-				testCase.setTestCaseName(testCaseName);
+			    testCase.setTestCaseName(testCaseName);
 				testCase.setStatus(status);
-               
-				
-                testCaseList.add(testCase);
+              
+				testCaseList.add(testCase);
                 
 
 			}
@@ -100,14 +94,6 @@ public class TestCaseImpl
 		return testCaseNameList;
 	}
 	
-	public static void main(String str[])
-	{
-		List<String> testCaseNameList1=getTestCaseNameList("Y");
-		for(String testCase:testCaseNameList1)
-		{
-			System.out.println(testCase);
-		}
-	}
 	
 }
 

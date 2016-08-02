@@ -23,7 +23,6 @@ public class TestCaseReporting {
 	static
 	{
 		
-		System.out.println("hello inside reporting!!!");
 	    htmlWriter=new StringBuilder();
 		htmlWriter.append("<html>");
 		htmlWriter.append("<body>");
@@ -34,7 +33,7 @@ public class TestCaseReporting {
 	}
 	public static void writeTestCase(String testCaseName,String status,String reportFile23) throws IOException
 	{
-		System.out.println("hello inside wrting test cases...");
+		
 	    String script="<tr><td>"+testCaseName+"</td><td>"+status+"</td><td><a href="+reportFile23+">Response</a></td></tr>";
 		htmlWriter.append(script);
 		
@@ -42,7 +41,7 @@ public class TestCaseReporting {
 	
 	public static void writeReport() throws IOException, SQLException 
 	{
-		
+		System.out.println("Writing Report....");
 		List<TestResult> testResultList=TestResultImpl.getTestResultList();
 		
 		for(TestResult testResult:testResultList)

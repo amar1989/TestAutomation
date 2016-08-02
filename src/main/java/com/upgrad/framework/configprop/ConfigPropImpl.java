@@ -18,11 +18,9 @@ public class ConfigPropImpl {
 		is=new FileInputStream("config.properties");
 		prop.load(is);
 		config=new ConfigPropertiesBO();
-		
-		config.setPassword(prop.getProperty("password"));
-		config.setUserId(prop.getProperty("username"));
+
 		config.setUrl(prop.getProperty("url"));
-		config.setTestCaseFileLoc(prop.getProperty("testCaseFileloc"));
+		config.setTestCaseFileLoc(prop.getProperty("testCaseFile"));
 		config.setBrowserName(prop.getProperty("browser"));
 		
 	}
