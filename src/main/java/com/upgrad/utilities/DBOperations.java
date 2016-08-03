@@ -25,7 +25,7 @@ public class DBOperations
             Class.forName("org.sqlite.JDBC");
             String dbURL = "jdbc:sqlite:product.db";
             conn = DriverManager.getConnection(dbURL);
-   
+            System.out.println("hello--1");
         } 
         catch (ClassNotFoundException ex) 
         {
@@ -54,6 +54,8 @@ public class DBOperations
 			preparedStatement = dbConnection.prepareStatement(createTableSQL);
 
 			preparedStatement.executeUpdate();
+			
+			
 
 		} 
 		catch (SQLException e) 
@@ -82,27 +84,30 @@ public class DBOperations
 public static void insertRecord(List<MovieBO> movieList,String testCaseName) throws SQLException, IOException
 {
 	
-	System.out.println("Inserting records in DB...");
+	
 	
 	Connection dbConnection = null;
 	PreparedStatement preparedStatement = null;
 	String tableName=TestDataImpl.getValue("TableName", testCaseName);
-
+  
 	String insertTableSQL = "INSERT INTO "+tableName+""
 			+ "(MOVIENAME, RELEASE_YEAR, RATING) VALUES"
 			+ "(?,?,?)";
+	
+	
 
 	try 
 	{
 		dbConnection = getConnection();
 		if(dbConnection!=null)
 		{
+			
 		    createTable(tableName);
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 	        
 			for(MovieBO movieBO:movieList)
 			{
-			
+			   
 				preparedStatement.setString(1, movieBO.getMovieName());
 				preparedStatement.setString(2, movieBO.getReleaseYear());
 				preparedStatement.setString(3, movieBO.getRating());
@@ -146,16 +151,16 @@ public static void insertRecord(List<MovieBO> movieList,String testCaseName) thr
 		System.out.println("connection :::"+con);
 	}*/
 
-	public static List<MovieBO> getMovieList() throws SQLException
+	public static List<MovieBO> getMovieList(String testCaseName) throws SQLException, IOException
 	{
 		System.out.println("Fetching records from DB....");
-		
+		String tableName=TestDataImpl.getValue("TableName", testCaseName);
 		List<MovieBO> moviesBOList=new ArrayList<MovieBO>();
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 
-		String selectSQL = "SELECT * FROM MOVIELIST1";
-
+		String selectSQL = "SELECT * FROM "+tableName;
+       
 		try 
 		{
 			dbConnection = getConnection();
@@ -169,8 +174,10 @@ public static void insertRecord(List<MovieBO> movieList,String testCaseName) thr
                 MovieBO movie=new MovieBO();
                 
 				String movieName = rs.getString("MOVIENAME");
+				
 				movie.setMovieName(movieName);
 				String releaseYear = rs.getString("RELEASE_YEAR");
+			
 				movie.setReleaseYear(releaseYear);
 				String rating=rs.getString("RATING");
 				movie.setRating(rating);

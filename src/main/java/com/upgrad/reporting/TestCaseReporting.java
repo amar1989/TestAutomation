@@ -48,7 +48,7 @@ public class TestCaseReporting {
 		{
 			String testCaseName=testResult.getTestCasename();
 			String status=testResult.getStatus();
-			String fileName=CreateHtmlReport.getHtmlReportFile();
+			String fileName=CreateHtmlReport.getHtmlReportFile(testCaseName);
 			System.out.println("fileName :::"+fileName);
 			writeTestCase(testCaseName,status,fileName);
 		}

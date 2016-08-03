@@ -24,6 +24,8 @@ public class MovieListFlow {
 			ImdbMoviesListOps.clickOnLink(driver,ImdbMoviesList.moviesLink);
 			
 			List<WebElement> moviesList=ImdbMoviesListOps.getMoviesList(driver, ImdbMoviesList.moviesName);
+			
+			
 			List<WebElement> releaseYearList=ImdbMoviesListOps.getReleaseYearList(driver, ImdbMoviesList.releaseYear);
 			List<WebElement> moviesRatingList=ImdbMoviesListOps.getRatingsList(driver,ImdbMoviesList.mviesRating );
 			

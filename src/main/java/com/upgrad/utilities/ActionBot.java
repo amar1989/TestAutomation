@@ -24,7 +24,7 @@ public class ActionBot {
 	
 	public static void sendKeys(WebDriver driver,By by,String data)
 	{
-		System.out.println("data is::"+data);
+		
 		WebElement element=driver.findElement(by);
 		if(element.isDisplayed())
 		{
@@ -55,6 +55,7 @@ public class ActionBot {
 	public static List<WebElement> getListOfElement(WebDriver driver,By by)
 	{
 		List<WebElement> elementList=driver.findElements(by);
+		
 		return elementList;
 	}
 	

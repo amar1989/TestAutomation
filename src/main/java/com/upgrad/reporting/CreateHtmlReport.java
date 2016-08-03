@@ -41,9 +41,9 @@ private static StringBuilder htmlWriter1;
 		
 	}
 	
-	public static String getHtmlReportFile() throws SQLException, IOException
+	public static String getHtmlReportFile(String testCaseName) throws SQLException, IOException
 	{
-	   List<MovieBO> movieList=DBOperations.getMovieList();
+	   List<MovieBO> movieList=DBOperations.getMovieList(testCaseName);
 	   
 	   for(MovieBO movie:movieList)
 	   {

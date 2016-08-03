@@ -36,7 +36,7 @@ public class TestDataImpl
 				if (testCase.getTestCaseName().equals(testCaseName)) 
 				{
 					testDataFile = testCase.getTestDataFile();
-					System.out.println(testDataFile);
+					
 					break;
 				}
 			}
@@ -86,13 +86,13 @@ public class TestDataImpl
 			}
 		
 		public static String getValue(String key,String testCaseName) throws IOException
-		{
+		{		
 			String value="";
-			System.out.println(testCaseName);
+			
 			List<TestData> testDataList1=getTestDataList(testCaseName);
 			for(TestData testData:testDataList1)
 			{
-				if(testData.getKey().equalsIgnoreCase("key"))
+				if(testData.getKey().equalsIgnoreCase(key))
 				{
 					value=testData.getValue();
 					break;
